@@ -1,0 +1,155 @@
+<!--*************************-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Machine Learning Workshop</title>
+    <meta name="viewport" content="width=device-width" />
+  </head>
+  <body>
+
+  </body>
+</html>
+
+<!--*************************-->
+
+-Document type declaration and the <html> root element.
+
+<!DOCTYPE html>  
+
+-Not an HTML Element
+-Special kind of node called "doctype"
+-Tells browser to use "standards mode", hence preventing "quirks mode" rendering
+
+(<a>https://developer.mozilla.org/en-US/docs/Web/HTML/Quirks_Mode_and_Standards_Mode</a>)
+
+<!-- How do I see which mode is used? -->
+
+document.compatMode - "BackCompat" -> implies doc rendered in quirks mode
+document.compatMode - "CSS1Compat" -> implies doc rendered in standards (no-quirks) mode
+
+
+<html lang="fr-CA">
+
+langcode-region
+"fr-CA"
+"fr-BF"
+"en-US"
+
+-The lang language attribute added to the <html> tag defines the main language of the document. 
+-This language declaration enables screen readers, search engines, and translation services to know the document language.
+-Not limited to html tag, can be added elsewhere to indicate different language
+-Only adds semantics, enabling assistive tech to know the language of the impacted content
+-**Can be used in CSS selectors
+
+Eg - <span lang="fr-fr">Ceci n'est pas une pipe.</span>
+
+-Can be targeted with attribute & language selectors - [lang|="fr"] and :lang(fr)
+
+<head>
+
+-Document metadata header, contains all the metadata for a site or application.    
+
+* document title    [ always add ]
+* character set     [ always add ]
+* viewport settings [ always add ]
+* description
+* baseURL
+* stylesheet links
+* icons
+
+<!--Character encoding-->
+
+- Very first thing in head
+- It comes before the title to ensure the browser can render the characters in that title and all the characters in the rest of the document.
+- The default encoding in most browsers is windows-1252, depending on the locale.
+- ** Should use 'utf-8' as it enables the one- to four-byte encoding of all characters
+- ** utf-8 required for HTML5
+- can use emojis with utf-8 (but dont)
+
+<meta charset="utf-8" />
+
+
+<!--Document Title-->
+
+- Displayed in the browser tab, the list of open windows, the history, search results, and, unless redefined with <meta> tags, in social media cards.
+
+<title>Machine Learning Workshop</title>
+
+
+<!--Viewport metadata-->
+
+** Viewport **
+--------------
+
+- It refers to the part of the document you're viewing which is currently visible in its window.
+- Content outside the viewport is not visible onscreen until scrolled into view.
+- Layout viewport ==> 
+    The layout viewport is the viewport into which the browser draws a web page. 
+    Essentially, it represents what is available to be seen
+- Visual viewport ==> 
+    Represents what is currently visible on the user's display device.
+    [window.visualViewport]
+
+** Viewport metadata **
+-----------------------
+
+- helps site responsiveness, enabling content to render well by default, no matter the viewport width.
+- it enables controlling a viewport's size and scale, and prevents the site's content from being sized down to fit a 960px site onto a 320px screen, it is definitely recommended.
+
+<meta name="viewport" content="width=device-width" />
+
+- Above html means "make the site responsive, starting by making the width of the content the width of the screen"
+- you can set zoom and scalability, but they both default to accessible values. If need to be explicit, include :
+
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1" />
+
+The basic properties of the "viewport" <meta> tag include:
+
+* width              -> Controls the size of the viewport
+                        width=600            (px)
+                        width=device-width   (which is 100vw, 100% of viewport width)
+                        1 < width < 10000
+
+* height             -> Controls height of the viewport
+                        height=400            (px)
+                        width=device-height   (which is 100vh, 100% of viewport height)
+                        1 < 10000 < 10000
+
+* initial-scale      -> Controls the zoom level when the page is first loaded
+                        0.1 < initial-scale < 10   [ Default: 1 ]
+
+* minimum-scale      -> Controls how much "zoom out" is allowed on the page
+                        0.1 < initial-scale < 10   [ Default: 0.1 ]
+
+* maximum-scale      -> Controls how much "zoom in" is allowed on the page
+                        Any value less than 3 fails accessibility.
+                        0.1 < initial-scale < 10   [ Default: 10 ]
+
+* user-scalable      -> Controls whether zoom in and zoom out actions are allowed on the page.
+                        0, 1, yes, no  [ Default: 1 (yes)]
+                        Setting to 0 (no), is against WCAG (Web Content Accessibility Guidelines)
+                        <a>https://www.w3.org/TR/WCAG21/#wcag-2-layers-of-guidance</a>
+
+                        {  WCAG requires a minimum of 2× scaling; however, the best practice is to enable a 5× zoom. }
+
+
+* interactive-widget -> Specifies the effect that interactive UI widgets, such as a virtual keyboard, have on the page's  viewports. resizes-visual, resizes-content, or overlays-content. Default: resizes-visual
+
+
+<!--CSS -->
+
+- The <link> tag is the preferred method of including stylesheets. 
+- The rel attribute defines the relationship: in this case stylesheet. If you omit this, your CSS will not be linked.
+
+<link rel="stylesheet" href="styles.css">
+
+//Read Later :: There are other ways to link : cascade layers,etc
+
+
+<!--Why to load styles in head ?-->
+
+- They will work if included in the document's body, but you want your styles in the head for performance reasons. 
+- You actually want the browser to know how to render the content (body) when it is loaded
+- Adding styles first prevents the unnecessary repainting that occurs if an element is styled after it is first rendered.

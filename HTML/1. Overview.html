@@ -1,0 +1,72 @@
+<!-- HTML documents are basically a tree of nodes : -->
+
+1. HTML elements 
+2. Text nodes
+
+<!-- Elements -->
+
+Elements and tags aren't the exact same thing, though many people use the terms
+interchangeably. 
+
+Tags -
+<p>
+
+Element -
+<p>
+  This paragraph has some
+  <strong><em>strongly emphasized</em></strong>
+  content
+</p>
+
+<!-- There are two types of elements: replaced and non-replaced -->
+
+Non-replaced elements 
+#--------------------
+
+The paragraph, header, and lists.
+Non-replaced elements have opening and (sometimes optional) closing tags that surround them and may include text and other tags as sub-elements. These enclosing tags can turn a phrase or image into a hyperlink, can make a sentence into a header, can give emphasis to words, and so on.
+  
+Replaced elements 
+#----------------
+
+Replaced elements are replaced by objects, be it a graphical user interface (UI) widget in the case of most form controls, or a raster or scalable image file in the case of most images.
+
+<input type="range">                      - replaced by GUI
+<img src="switch.svg" alt="light switch"> - replace by image
+
+Void elements 
+#------------
+
+Void elements are all self-closing elements and are represented by one tag.
+<br>
+<img>
+<input>
+
+Most replaced elements are void elements, but not all [ video, picture, object, iframe]
+Most void elements are replaced; but again, not all [ base, link, param, meta]
+
+<!-- Attributes -->
+
+Attributes provide information about the element.
+Help define how the content will appear to both your sighted and non-sighted (assistive technologies and search engines) users.
+
+Global
+Applies to several, but NOT all
+Applies to specific
+
+<!-- Appearance of elements -->
+
+The semantics, or role, of an element is important to assistive technologies and, in some cases, search engines
+HTML should be used to structure content, not to define the content's appearance. Appearance is the realm of CSS. 
+
+<!-- Element, attributes, and JavaScript  -->
+
+The Document Object Model (DOM) is the data representation of the structure and content of the HTML document. As the browser parses HTML, it creates a JavaScript object for every element and section of text encountered.These objects are called nodes—element nodes and text nodes, respectively.
+
+-> There is an interface to define the functionality of every HTML element.
+
+-> The HTML DOM API provides access to and control of every HTML element via the DOM, providing interfaces for the HTML element and all the HTML classes that inherit from it
+
+->* The HTMLElement interface represents the HTML element and all of its descendant nodes. Every other element implements it via an interface that inherits from it. Each inheriting interface has a constructor, methods, and properties. Via the inherited HTMLElement properties, you can access every global attribute, as well as input, pointer, transition, and animation events.
+
+->* Via the individual element's sub-type, such as HTMLAnchorElement and HTMLImageElement, you can access element-specific attribute values and methods.
