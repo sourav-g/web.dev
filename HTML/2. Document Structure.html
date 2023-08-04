@@ -6,9 +6,15 @@
     <meta charset="utf-8" />
     <title>Machine Learning Workshop</title>
     <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" src="css/styles.css" />
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <link rel="alternate" href="https://www.machinelearningworkshop.com/fr/" hreflang="fr-FR" />
+    <link rel="alternate" href="https://www.machinelearningworkshop.com/pt/" hreflang="pt-BR" />
+    <link rel="canonical" href="https://www.machinelearning.com" />
   </head>
   <body>
 
+    <!-- <script defer src="scripts/lightswitch.js"></script>-->
   </body>
 </html>
 
@@ -153,3 +159,65 @@ The basic properties of the "viewport" <meta> tag include:
 - They will work if included in the document's body, but you want your styles in the head for performance reasons. 
 - You actually want the browser to know how to render the content (body) when it is loaded
 - Adding styles first prevents the unnecessary repainting that occurs if an element is styled after it is first rendered.
+
+
+<!--Other uses of the <link> element-->
+
+- The link element is used to create relationships between the HTML document and external resources.
+- Some of these resources may be downloaded, others are informational.
+- There are currently 25 available values for the rel attribute that can be used with <link>, <a> and <area>, or <form>, with a few that can be used with all. <a> https://html.spec.whatwg.org/multipage/links.html#linkTypes </a>
+- It's preferable to include those related to meta information in the head and those related to performance in the <body>.
+
+
+** Favicon
+----------
+
+- A favicon is a very small icon that appears on the browser tab, generally to the left of the document title. 
+- If you don't declare a favicon, the browser will look for a file named favicon.ico in the top-level directory (the website's root folder). 
+
+<link rel="icon" sizes="16x16 32x32 48x48" type="image/png" href="/images/mlwicon.png" />
+
+- "use the mlwicon.png as the icon for scenarios where a 16px, 32px, or 48px makes sense."
+-  For scalable icons : sizes = "any"
+                    or, sizes = < space-separated list of square widthXheight values; where the width and height values are 16, 32, 48, or greater in that geometric sequence >
+
+
+** Alternate versions of the site
+---------------------------------
+
+- We use the alternate value of the rel attribute to identify translations, or alternate representations, of the site.
+
+<link rel="alternate" href="https://www.machinelearningworkshop.com/fr/" hreflang="fr-FR" />
+<link rel="alternate" href="https://www.machinelearningworkshop.com/pt/" hreflang="pt-BR" />
+<link rel="alternate" type="application/x-pdf" href="https://machinelearningworkshop.com/mlw.pdf" />
+
+** Canonical 
+------------
+
+- If you create several translations or versions of Machine Learning Workshop, search engines may get confused as to which version is the authoritative source. For this, use rel="canonical" to identify the preferred URL for the site or application.
+
+<link rel="canonical" href="https://www.machinelearning.com" />
+
+
+<!--Scripts-->
+
+- The default type is JavaScript
+- If you include any other scripting language, include the type attribute with the mime type, or type="module" if it's a JavaScript module.
+- Only JavaScript and JavaScript modules get parsed and executed.
+
+<!--Why scripts loaded at bottom of the body ?-->
+- JavaScript is not only render-blocking, but the browser stops downloading all assets when scripts are downloaded and doesn't resume downloading other assets until the JavaScript is executed. For this reason, you will often find JavaScript requests at the end of the document rather than in the head.
+
+<!--Two attributes which reduces blocking nature of JS download & execution : async & defer -->
+
+* with defer :
+  -> parallel download , HTML rendering NOT blocked
+  -> defered execution, once HTML is rendered
+
+* with async :
+  -> parallel download , HTML rendering NOT blocked
+  -> immediate execution with HTML rendering BLOCKED  
+
+<!--Base-->
+
+<base target="_top" href="https://machinelearningworkshop.com" />
