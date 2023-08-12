@@ -1,0 +1,72 @@
+- if you use non-semantic 'div', have to comment each closing 
+  div to keep track which one it closes
+
+
+- Made semantic with role addition :
+
+  <!-- start header -->
+  <div role="banner">
+    <div role="heading" aria-level="1">Machine Learning Workshop</div>
+    <div role="navigation">
+      <a href="#reg">Register</a>
+      <a href="#about">About</a>
+      <a href="#teachers">Instructors</a>
+      <a href="#feedback">Testimonials</a>
+    </div>
+    <!-- end navigation bar -->
+  <div>
+  <!-- end of header -->
+
+
+- Native semantic elements used : [ better ]
+
+  <header>
+    <h1>Machine Learning Workshop</h1>
+    <nav>
+      <a href="#reg">Register</a>
+      <a href="#about">About</a>
+      <a href="#teachers">Instructors</a>
+      <a href="#feedback">Testimonials</a>
+    </nav>
+  </header>
+
+- This is the main header. The <header> element isn't always a landmark. It has different semantics depending on where it is nested. 
+- When the <header> is top level, it is the site banner, a landmark role, which you may have noted in the role code block. When a <header> is nested in <main>, <article>, or <section>, it just identifies it as the header for that section and isn't a landmark.
+
+
+<footer>
+    <p>&copy;2022 Machine Learning Workshop, LLC. All rights reserved.</p>
+    <address>Instructors: <a href="/hal.html">Hal</a> and <a href="/eve.html">Eve</a></address>
+</footer>
+
+
+<!-- Document Structure-->
+
+
+<body>
+    <header>Header</header>           // implicit role : banner        [only for top level]
+    <nav>Nav</nav>
+    <main>
+      <article>First post</article>
+      <article>Second post</article>
+    </main>
+    <aside>Aside</aside>
+    <footer>Footer</footer>           // implicit role : content info  [only for top level]
+</body>
+
+<!--main-->
+
+- There's a single <main> landmark element.
+- The <main> element identifies the main content of the document. 
+- There should be only one <main> per page.
+
+
+<!--<aside>-->    // implicit role : complementary.
+
+- The <aside> is for content that is indirectly or tangentially related to the document's main content.
+
+
+<!--<article> -->    
+
+- An <article> represents a complete, or self-contained, section of content that is, in principle, independently reusable. 
+- Think of an article as you would an article in a newspaper.        

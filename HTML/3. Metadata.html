@@ -1,0 +1,71 @@
+- Everything in the <head> is actually metadata
+
+- Mainly 2 main types of "meta" tags:
+ 
+1. Pragma directives [ using 'http-equiv' attribute ]
+2. Named meta types  [ using 'name' attribute ]
+
+<!--Pragma directives-->
+
+- When the http-equiv attribute is specified on a meta element, the element is a pragma directive.
+- These directives describe how a page should be parsed
+- 7 Pragma directives in spec :
+
+<!--
+State	                 Keyword	              Notes          | 
+-----------------------------------------------------------------|
+Content Language	     content-language	      Non-conforming |
+Encoding declaration	 content-type	                         |   
+Default style	         default-style	                         |
+Refresh	                 refresh                                 |                	
+Set-Cookie	             set-cookie	              Non-conforming |
+X-UA-Compatible	         x-ua-compatible	                     |
+Content security policy	 content-security-policy	             |
+------------------------------------------------------------------
+
+-->
+
+- Common pragma directives : "refresh" & "content-security-policy"[important]
+
+<meta http-equiv="refresh" content="60; https://machinelearningworkshop.com/regTimeout" />
+
+- you can set a directive to refresh at an interval of the number of seconds set in the content attribute, and even redirect to a different URL
+
+<meta http-equiv="content-security-policy" content="default-src https:" />
+
+<!--! Read Later : https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy-->
+
+
+<!--Named meta tags -->
+
+viewport
+description - super important for SEO
+<meta name="description"
+  content="Register for a machine learning workshop at our school for machines who can't learn good and want to do other stuff good too" />
+
+theme-color
+<meta name="theme-color" content="#226DAA" />
+
+keywords    [ not required ]
+
+If you don't want your site to be indexed by search engines, you can let them know.
+<meta name="robots" content="noindex, nofollow" />
+<meta name="robots" content="index, follow" />      [default behaviour, not required]
+
+
+<!----Open Graph---->
+
+- Open Graph and similar meta tag protocols can be used to control how social media sites, like Twitter, LinkedIn, and Facebook, display links to your content.
+
+- Creating a FB media card: 
+
+<meta property="og:title" content="Machine Learning Workshop" />
+<meta property="og:description" content="School for Machines Who Can't Learn Good and Want to Do Other Stuff Good Too" />
+<meta property="og:image" content="http://www.machinelearningworkshop.com/image/all.png" />
+<meta property="og:image:alt" content="Black and white line drawing of refrigerator, french door refrigerator, range, washer, fan, microwave, vaccuum, space heater and air conditioner" />
+
+- These meta tags are all defined in the Open Graph protocol. 
+- The values should be the content you would like the third-party web application to display.
+
+<!--! Read Later : https://ogp.me/ --->
+<!--! Read Later : Web App manifest file --->
